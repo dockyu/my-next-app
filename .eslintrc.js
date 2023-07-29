@@ -1,37 +1,30 @@
+// .eslintrc.js
 module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
-		node: true,
+		node: true
 	},
 	extends: [
-		"eslint:recommended",
-		"plugin:@typescript-eslint/recommended",
-		"plugin:react/recommended",
+		'plugin:@typescript-eslint/recommended',
+		'plugin:vue/vue3-recommended',
+		'plugin:prettier/recommended'
 	],
-	overrides: [
-		{
-			env: {
-				node: true,
-			},
-			files: [".eslintrc.{js,cjs}"],
-			parserOptions: {
-				sourceType: "script",
-			},
-		},
-	],
-	parser: "@typescript-eslint/parser",
+	// 参考vue官方推荐,替换默认parser
+	parser: 'vue-eslint-parser',
 	parserOptions: {
-		ecmaVersion: "latest",
-		sourceType: "module",
+		ecmaVersion: 'latest',
+		ecmaFeatures: {
+			jsx: true
+		},
+		parser: '@typescript-eslint/parser',
+		sourceType: 'module'
 	},
-	plugins: ["@typescript-eslint", "react"],
+	plugins: ['@typescript-eslint', 'vue'],
 	rules: {
-		indent: ["error", "tab"],
-		"linebreak-style": ["error", "unix"],
-		quotes: ["error", "double"],
-		semi: ["error", "always"],
-		"react/react-in-jsx-scope": "off",
-		"react/jsx-uses-react": "off",
-	},
+		indent: ['error', 4],
+		'linebreak-style': ['error', 'unix'],
+		quotes: ['error', 'single'],
+		semi: ['error', 'always']
+	}
 };
